@@ -1,0 +1,19 @@
+A A A
+B B B
+C C C
+
+#include<iostream>
+using namespace std;
+
+int main( ){
+	int n;
+	cin>>n;   // n=3
+	for(int row=1; row<=n; row++){
+		for(int col=1; col<=n; col++){
+		char value = 'A'+row-1;
+		cout<<value<<" ";
+		}
+	cout<<endl;
+	}	
+	return 0;
+}
