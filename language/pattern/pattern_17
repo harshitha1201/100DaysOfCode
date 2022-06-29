@@ -1,0 +1,20 @@
+D
+C D
+B C D
+A B C D
+
+#include<iostream>
+using namespace std;
+
+int main( ){
+int n;
+cin>>n;  //n=4
+	for(int row =1;row<=n;row++){
+		for(int col=1;col<=row;col++){
+		char value='D'-row+col;
+		cout<<value<<" ";
+		}
+	cout<<endl;
+	}
+	return 0;
+}
