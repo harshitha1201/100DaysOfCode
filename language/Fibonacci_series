@@ -1,0 +1,53 @@
+0 1 1 2 3 5 8 13 21 34 55 89
+TO PRINT 10 FIBONACCI NUMBERS 
+
+
+#include<iostream>
+using namespace std;
+
+int main( ){
+	int n;
+	cin>>n;  //n= 10
+	
+	int first = 0;
+	int second = 1;
+	
+	cout<<first<<" "<<second<<" ";
+	
+	for(int i=1;i<=n;i++){
+		int sum = first + second;
+		cout<<sum<<" ";
+		first = second;
+		second = sum;
+	}
+	return 0;
+}
+
+
+0 1 1 2 3 5 8 13 21 34 55 89
+TO PRINT FIBONACCI NUMBERS UPTO 21
+
+
+#include<iostream>
+using namespace std;
+
+int main( ){
+	int n;
+	cin>>n;  //n= 10
+	
+	int first = 0;
+	int second = 1;
+	
+	cout<<first<<" "<<second<<" ";
+	
+	for(int i=1;i<=n;i++){
+		int sum = first + second;
+		cout<<sum<<" ";
+		first = second;
+		second = sum;
+        if(sum==21){
+           break;
+        }
+	}
+	return 0;
+}
