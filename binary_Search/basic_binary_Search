@@ -1,14 +1,14 @@
 IF THE WORD SORTED IS GIVEN IN THE QUESTION, THEN COMPULSORY APPLY BINARY SEARCH
 
-#include <iostream>      // THE ARRAY MUST BE SORTED TO APPLY BINARY SEARCH
+#include <iostream>    // THE ARRAY MUST BE SORTED TO APPLY BINARY SEARCH
 using namespace std;
 
 int binary_Search(int arr[],int size,int key){
     int start = 0;
     int end = size - 1;
-    
+    if(arr[start]<arr[end]){
     while(start<=end){
-        int mid = end - (end - start)/2;   //we shouldn't write (start +end)/2 , if both integers are INT_MAX it cannot store (INT_MAX+INT_MAX)/2 -> INT OVERFLOW OCCURS
+        int mid = end - (end - start)/2;      //we shouldn't write (start +end)/2 , if both integers are INT_MAX it cannot store (INT_MAX+INT_MAX)/2 -> INT OVERFLOW OCCURS
         if(arr[mid]==key){
             return mid;
         }
@@ -18,13 +18,30 @@ int binary_Search(int arr[],int size,int key){
         else{
             start = mid + 1;
         }
+    } 
     }
-    return -1;   // if the element we want to search (key) is not there in an array, then return -1                             
+    else{
+        while(start<=end){
+        int mid = end - (end - start)/2;
+        if(arr[mid]==key){
+            return mid;
+        }
+        else if(arr[mid]<key){
+            end = mid - 1;
+        }
+        else{
+            start = mid + 1;
+        }
+    } 
+    }
+    return -1;       // if the element we want to search (key) is not there in an array, then return -1
 }
 int main()
 {
     int odd[7]={3,5,9,13,27,82,91};
-    cout<<binary_Search(odd,7,82);   //  no need to write it as odd[ ] ,when calling the array in the function
+    int even[10] = {20,17,15,14,13,12,10,9,8,4};
+    cout<<binary_Search(odd,7,91)<<endl; // o/p -> 6     //  no need to write it as odd[ ] ,when calling the array in the function
+    cout<<binary_Search(even,10,4);   // o/p -> 9
 
     return 0;
 }
